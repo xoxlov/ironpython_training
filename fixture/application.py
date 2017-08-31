@@ -29,12 +29,12 @@ class WinApplication(object):
             from System.Windows.Automation import *
             self.ControlType = ControlType
 
-    def __init__(self, config):
+    def __init__(self):
         self.white = self.White()
         self.uiauto = self.UIAutomation()
         self.group = GroupHelper(self)
-        self.application = self.white.Application.Launch(config["application"]["path"])
-        self.main_window = self.application.GetWindow(config["application"]["window_title"])
+        self.application = self.white.Application.Launch("c:\\Program Files (x86)\\GAS Softwares\\Free Address Book\\AddressBook.exe")
+        self.main_window = self.application.GetWindow("Free Address Book")
 
     def destroy(self):
         if self.main_window:
